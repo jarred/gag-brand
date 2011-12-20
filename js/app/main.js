@@ -3,6 +3,8 @@
 
   GAGBrand = window.GAGBrand || (window.GAGBrand = {});
 
+  GAGBrand.Views || (GAGBrand.Views = {});
+
   GAGBrand.Main = {
     appModel: new Backbone.Model(),
     app: $.sammy(function() {
@@ -12,6 +14,7 @@
         $('.section').removeClass('visible');
         $section = $("#" + this.params.section);
         $section.addClass('visible');
+        $section.trigger('visible');
         GAGBrand.Main.appModel.trigger('change');
         _.each($('#navigation a'), function(el) {
           var $el, $parent, href;
@@ -31,8 +34,22 @@
         window.location.hash = 'introduction';
       }
       this.app.run();
+      this.extendViews();
     },
-    extendViews: function() {}
+    extendViews: function() {
+      var _this = this;
+      console.log('extendViews');
+      _.each($('.extend'), function(el) {
+        var $el, name, view;
+        $el = $(el);
+        name = $el.data('view');
+        if ((name != null) && (GAGBrand.Views[name] != null)) {
+          view = new GAGBrand.Views[name]({
+            el: el
+          });
+        }
+      });
+    }
   };
 
   GAGBrand.Main.init();
