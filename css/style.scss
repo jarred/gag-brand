@@ -16,7 +16,7 @@ body{
 
 a{
   text-decoration: none;
-  /*border-bottom: 1px dotted #CCC;*/
+  border-bottom: 1px dotted #CCC;
   margin-bottom: -1px;
   &:hover{
     text-decoration: none;
@@ -48,11 +48,12 @@ ul#navigation{
     span.mdash{
       display: none;
     }
+    display: block;
     text-align: center;
     a{
-      color: #F30;
-      border: 0px;
-      display: block;  
+      color: #000;
+      border-bottom: 1px solid #000;
+      display: inline-block;  
     }
   }
 }
@@ -85,9 +86,9 @@ div.section.page{
     color: #AAA;
   }
   h2{
-    font: 600 14px/20px 'Helvetica Neue', sans-serif;
-    margin-bottom: 20px;
-    color: #AAA;
+    font: 500 18px/20px 'Helvetica Neue', sans-serif;
+    margin: 40px 0px 20px 0px;
+    color: #888;
   }
   p{
     width: 400px;
