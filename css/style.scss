@@ -1,0 +1,139 @@
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+
+/*
+  GAG BRAND
+*/
+
+body{
+  font-family: Sans-Serif;
+}
+
+a{
+  text-decoration: none;
+  /*border-bottom: 1px dotted #CCC;*/
+  margin-bottom: -1px;
+  &:hover{
+    text-decoration: none;
+    border-bottom-color: rgba(0,0,0,0);
+  }
+  &:active{
+    opacity: 0;
+  }
+}
+
+ul#navigation{
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  font: 12px/18px 'monaco', monospace;
+  z-index: 100;
+  right: 20px;
+  li.title{
+    margin-bottom: 10px;
+  }
+  a{
+    color: #AAA;
+  }
+  span.mdash{
+    margin-right: 4px;
+    color: #CCC;
+  }
+  li.current{
+    span.mdash{
+      display: none;
+    }
+    text-align: center;
+    a{
+      color: #F30;
+      border: 0px;
+      display: block;  
+    }
+  }
+}
+
+div.section{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+  display: none;
+  &.visible{
+    display: block;
+  }
+}
+
+div.section#introduction{
+  bottom: 0px;
+  background: url('../images/logo.intro.png') no-repeat center center;
+}
+
+div.section.page{
+  text-align: center;
+  padding-top: 200px;
+  line-height: 20px;
+  h1{
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    font: 500 36px/36px 'Courier New', courier, monospace;
+    color: #AAA;
+  }
+  h2{
+    font: 600 14px/20px 'Helvetica Neue', sans-serif;
+    margin-bottom: 20px;
+    color: #AAA;
+  }
+  p{
+    width: 400px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    margin-left: -200px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    em{
+      font-style: italic;
+    }
+  }
+}
+
+div.slideshow{
+  position: relative;
+  width: 500px;
+  height: 600px;
+  left: 50%;
+  margin-left: -250px;
+  div.slide{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: none;
+    img{
+      border: 1px dotted #CCC;
+    }
+    p{
+      font: 11px/15px 'Monaco', monospace;
+      margin-top: 10px;
+      color: #555;
+      span.ok{
+        color: #41d636;
+      }
+      span.not-ok{
+        color: #FF3300;
+      }
+      a{
+        color: #666;
+        text-decoration: underline;
+      }
+    }
+    &.visible{
+      display: block;
+    }
+  }
+}
