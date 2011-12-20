@@ -32,7 +32,9 @@ GAGBrand.Main =
   init: () ->
     if window.location.hash == '' || window.location.hash == null
       window.location.hash = 'introduction'
-    @extendViews()      
+    @extendViews()
+    
+    @appModel.bind 'extend-views', @extendViews      
     @app.run()
     return
 

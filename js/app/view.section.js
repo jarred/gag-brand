@@ -11,6 +11,8 @@
       _.bindAll(this);
       this.$el = $(this.el);
       this.$el.bind('show', this.show);
+      this.data = this.$el.data();
+      if (this.data.page != null) this.loadPage();
     },
     show: function(e) {
       this.$el.addClass('visible');
@@ -19,6 +21,12 @@
     hide: function(e) {
       this.$el.removeClass('visible');
       this.$el.unbind('hide', this.hide);
+    },
+    loadPage: function() {
+      this.$el.load(this.data.page, this.pageLoaded);
+    },
+    pageLoaded: function() {
+      this.options.appModel.trigger('extend-views');
     }
   });
 

@@ -38,6 +38,7 @@
         window.location.hash = 'introduction';
       }
       this.extendViews();
+      this.appModel.bind('extend-views', this.extendViews);
       this.app.run();
     },
     extendViews: function() {
