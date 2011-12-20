@@ -6,12 +6,17 @@ GAGBrand.Main =
 
   app: $.sammy () ->
     @get '#:section', () ->
-      $('.section').removeClass 'visible'
-      $section = $("##{@params.section}")
-      $section.addClass 'visible'
-      $section.trigger 'visible'
+
+      _.each $('.section'), (el) =>
+        $el = $(el)
+        if $el.attr('id') == @params.section
+          $el.trigger 'show'
+        else if $el.hasClass 'visible'
+          $el.trigger 'hide'
+        return
       GAGBrand.Main.appModel.trigger 'change'
 
+      #nav stuff
       _.each $('#navigation a'), (el) =>
         $el = $(el)
         $parent = $el.parents('li')
@@ -27,18 +32,19 @@ GAGBrand.Main =
   init: () ->
     if window.location.hash == '' || window.location.hash == null
       window.location.hash = 'introduction'
+    @extendViews()      
     @app.run()
-    @extendViews()
     return
 
   extendViews: ->
-    console.log 'extendViews'
     _.each $('.extend'), (el) =>
       $el = $(el)
       name = $el.data 'view'
       if name? && GAGBrand.Views[name]?
         view = new GAGBrand.Views[name]
           el: el
+          appModel: @appModel
+        $el.removeClass 'extend'
       return
     return
 

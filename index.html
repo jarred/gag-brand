@@ -19,7 +19,7 @@
 <body>
 
   <ul id="navigation">
-    <li class="title"><a href="http://jarred.github.com/gag-brand/">Good As Gold<br />Brand Guidelines</a></li>
+    <li class="title"><a href="#introduction">Good As Gold<br />Brand Guidelines</a></li>
     <li><span class="mdash">&mdash;</span><a href="#purpose">Purpose</a></li>
     <li><span class="mdash">&mdash;</span><a href="#logos-and-usage">Logos &amp; usage</a></li>
     <li><span class="mdash">&mdash;</span><a href="#typography">Typography</a></li>
@@ -28,14 +28,14 @@
     <li><span class="mdash">&mdash;</span><a href="#tone">Tone</a></li>
   </ul>
 
-  <div id="introduction" class="section"></div>
+  <div id="introduction" class="section extend" data-view="SectionView"></div>
 
-  <div class="section page" id="purpose">
+  <div class="section page extend" id="purpose" data-view="SectionView">
     <p>The aim of this document is to communicate the qualities that make up the brand Good As Gold and highlight their uses and applications.</p>
     <p>The purpose of having a system like this is to ensure that G.A.G. is perceived as a cohesive entity with consitent and interesting tone and message.</p>
   </div>
 
-  <div class="section page" id="logos-and-usage">
+  <div class="section page extend" data-view="SectionView" id="logos-and-usage">
     <p><img src="./images/logos-and-usage.circle-logo.png"/></p>
     <p>This logo is to be used whenever possible. It should be transparent and a single colour. Don't skew it. It doesn't need to be massive, but shouldn't be too small either.</p>
 
@@ -59,7 +59,7 @@
     <h2>The logo and text</h2>
   </div>
 
-  <div class="section page" id="typography">
+  <div class="section page extend" data-view="SectionView" id="typography">
     <p>The G.A.G. brand makes heavy use of two families; Gotham (HTF) and Archer and plays on the contrast between them.</p>
   </div>
 
@@ -68,6 +68,7 @@
   <script type="text/javascript" src="./js/libs/backbone-min.js"></script>
   <script type="text/javascript" src="./js/libs/sammy-min.js"></script>
   <script type="text/javascript" src="./js/app/view.slideshow.js"></script>
+  <script type="text/javascript" src="./js/app/view.section.js"></script>
   <script type="text/javascript" src="./js/app/main.js"></script>
 </body>
 </html>

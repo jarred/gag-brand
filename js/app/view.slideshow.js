@@ -9,8 +9,17 @@
     initialize: function(options) {
       this.options = options;
       _.bindAll(this);
+      this.$el = $(this.el);
       this.total = this.$('.slide').length;
+      this.$parent = this.$el.parents('.section');
+      this.$parent.bind('show', this.show);
+      this.$parent.bind('hide', this.hide);
+    },
+    show: function(e) {
       this.showSlide(0);
+    },
+    hide: function(e) {
+      clearInterval(this.int);
     },
     showSlide: function(n) {
       var _this = this;
@@ -24,7 +33,7 @@
           $slide.removeClass('visible');
         }
       });
-      this.int = setTimeout(this.showNextSlide, 6000);
+      this.int = setTimeout(this.showNextSlide, 4000);
     },
     showNextSlide: function() {
       if (this.currentSlide + 1 < this.total) {

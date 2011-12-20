@@ -9,12 +9,16 @@
     appModel: new Backbone.Model(),
     app: $.sammy(function() {
       this.get('#:section', function() {
-        var $section;
         var _this = this;
-        $('.section').removeClass('visible');
-        $section = $("#" + this.params.section);
-        $section.addClass('visible');
-        $section.trigger('visible');
+        _.each($('.section'), function(el) {
+          var $el;
+          $el = $(el);
+          if ($el.attr('id') === _this.params.section) {
+            $el.trigger('show');
+          } else if ($el.hasClass('visible')) {
+            $el.trigger('hide');
+          }
+        });
         GAGBrand.Main.appModel.trigger('change');
         _.each($('#navigation a'), function(el) {
           var $el, $parent, href;
@@ -33,20 +37,21 @@
       if (window.location.hash === '' || window.location.hash === null) {
         window.location.hash = 'introduction';
       }
-      this.app.run();
       this.extendViews();
+      this.app.run();
     },
     extendViews: function() {
       var _this = this;
-      console.log('extendViews');
       _.each($('.extend'), function(el) {
         var $el, name, view;
         $el = $(el);
         name = $el.data('view');
         if ((name != null) && (GAGBrand.Views[name] != null)) {
           view = new GAGBrand.Views[name]({
-            el: el
+            el: el,
+            appModel: _this.appModel
           });
+          $el.removeClass('extend');
         }
       });
     }

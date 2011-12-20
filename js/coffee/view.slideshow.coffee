@@ -5,8 +5,19 @@ GAGBrand.Views.SlideshowView = Backbone.View.extend
   
   initialize: (@options) ->
     _.bindAll @
+    @$el = $(@el)
     @total = @$('.slide').length
+    @$parent = @$el.parents('.section')
+    @$parent.bind 'show', @show
+    @$parent.bind 'hide', @hide
+    return
+
+  show: (e) ->
     @showSlide 0
+    return
+
+  hide: (e) ->
+    clearInterval @int
     return
 
   showSlide: (n) ->
@@ -18,7 +29,7 @@ GAGBrand.Views.SlideshowView = Backbone.View.extend
       else if $slide.hasClass 'visible'
         $slide.removeClass 'visible'
       return
-    @int = setTimeout @showNextSlide, 6000
+    @int = setTimeout @showNextSlide, 4000
     return
 
   showNextSlide: () ->
