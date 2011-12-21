@@ -28,11 +28,11 @@ a{
 }
 
 ul#navigation{
-  position: absolute;
+  position: fixed;
   left: 20px;
   top: 40px;
   font: 12px/18px 'monaco', monospace;
-  z-index: 100;
+  z-index: 1;
   right: 20px;
   li.title{
     margin-bottom: 10px;
@@ -60,10 +60,11 @@ ul#navigation{
 
 div.section{
   position: absolute;
+  background: #FFF;
   left: 0px;
-  top: 0px;
+  top: 200px;
   right: 0px;
-  z-index: 1;
+  z-index: 10;
   display: none;
   &.visible{
     display: block;
@@ -72,12 +73,11 @@ div.section{
 
 div.section#introduction{
   bottom: 0px;
-  background: url('../images/logo.intro.png') no-repeat center center;
+  background: url('../images/logo.intro.png') no-repeat top center;
 }
 
 div.section.page{
   text-align: center;
-  padding-top: 200px;
   line-height: 20px;
   h1{
     letter-spacing: -1px;
@@ -136,5 +136,50 @@ div.slideshow{
     &.visible{
       display: block;
     }
+  }
+}
+
+div.examples{
+  margin: 20px;
+  line-height: 0px;
+  font-size: 0px;
+  div.example{
+    background: #DDD;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+    margin: 1px;
+    cursor: pointer;
+  }
+}
+
+div.zoom{
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  background: #FFF;
+  z-index: 999;
+  img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+  a.close{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 28px;
+    border: 0px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    color: #000;
+    font: 400 40px/4px 'Helvetica Neue', sans-serif;
   }
 }
