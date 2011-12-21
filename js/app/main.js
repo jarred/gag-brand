@@ -8,7 +8,7 @@
   GAGBrand.Main = {
     appModel: new Backbone.Model(),
     app: $.sammy(function() {
-      this.get('#:section', function() {
+      this.get('#/:section', function() {
         var _this = this;
         _.each($('.section'), function(el) {
           var $el;
@@ -24,7 +24,7 @@
           var $el, $parent, href;
           $el = $(el);
           $parent = $el.parents('li');
-          href = $el.attr('href').replace('#', '');
+          href = $el.attr('href').replace('#/', '');
           if (href === _this.params.section) {
             $parent.addClass('current');
           } else if ($parent.hasClass('current')) {
@@ -38,12 +38,15 @@
       });
     }),
     init: function() {
-      if (window.location.hash === '' || window.location.hash === null) {
-        window.location.hash = 'introduction';
-      }
+      var _this = this;
       this.extendViews();
+      if (window.location.hash === '' || window.location.hash === null) {
+        window.location.hash = '/introduction';
+      }
       this.appModel.bind('extend-views', this.extendViews);
-      this.app.run();
+      setTimeout(function() {
+        return _this.app.run();
+      }, 100);
     },
     extendViews: function() {
       var _this = this;

@@ -5,7 +5,7 @@ GAGBrand.Main =
   appModel: new Backbone.Model()
 
   app: $.sammy () ->
-    @get '#:section', () ->
+    @get '#/:section', () ->
 
       _.each $('.section'), (el) =>
         $el = $(el)
@@ -20,7 +20,7 @@ GAGBrand.Main =
       _.each $('#navigation a'), (el) =>
         $el = $(el)
         $parent = $el.parents('li')
-        href = $el.attr('href').replace('#', '')
+        href = $el.attr('href').replace('#/', '')
         if href is @params.section
           $parent.addClass 'current'
         else if $parent.hasClass 'current'
@@ -36,12 +36,15 @@ GAGBrand.Main =
     return
 
   init: () ->
+    @extendViews()    
     if window.location.hash == '' || window.location.hash == null
-      window.location.hash = 'introduction'
-    @extendViews()
-    
+      window.location.hash = '/introduction'
     @appModel.bind 'extend-views', @extendViews      
-    @app.run()
+    # @app.run()
+    setTimeout () =>
+      # this is a hack to let all the views register...
+      @app.run()
+    , 100
     return
 
   extendViews: ->
