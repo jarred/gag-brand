@@ -31,6 +31,10 @@
             $parent.removeClass('current');
           }
         });
+        $('body, html').scrollTop(6);
+        $('body, html').animate({
+          scrollTop: 0
+        }, 100);
       });
     }),
     init: function() {

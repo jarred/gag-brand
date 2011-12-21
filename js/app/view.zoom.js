@@ -24,8 +24,13 @@
     imageLoaded: function() {
       this.$img.css({
         marginLeft: 0 - (this.$img.width() / 2),
-        marginTop: 0 - (this.$img.height() / 2)
+        marginTop: 0 - (this.$img.height() / 2) + 6,
+        opacity: 0
       });
+      this.$img.animate({
+        marginTop: 0 - (this.$img.height() / 2),
+        opacity: 1
+      }, 100);
     },
     close: function(e) {
       e.preventDefault();

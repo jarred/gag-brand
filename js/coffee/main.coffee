@@ -26,6 +26,12 @@ GAGBrand.Main =
         else if $parent.hasClass 'current'
           $parent.removeClass 'current'
         return
+
+      #scroll stuff
+      $('body, html').scrollTop 6
+      $('body, html').animate
+        scrollTop: 0
+      , 100
       return
     return
 

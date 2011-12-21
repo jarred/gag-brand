@@ -51,8 +51,8 @@ ul#navigation{
     display: block;
     text-align: center;
     a{
-      color: #000;
-      border-bottom: 1px solid #000;
+      color: #f15858;
+      border-bottom: 1px solid #f15858;
       display: inline-block;  
     }
   }
@@ -61,11 +61,12 @@ ul#navigation{
 div.section{
   position: absolute;
   background: #FFF;
-  left: 0px;
+  left: 200px;
   top: 200px;
-  right: 0px;
+  right: 200px;
   z-index: 10;
   display: none;
+  min-height: 1000px;
   &.visible{
     display: block;
   }
@@ -86,8 +87,10 @@ div.section.page{
     color: #AAA;
   }
   h2{
-    font: 500 18px/20px 'Helvetica Neue', sans-serif;
+    font: 12px/18px 'monaco', monospace;
+    border-bottom: 1px solid #CCC;
     margin: 40px 0px 20px 0px;
+    display: inline-block;
     color: #888;
   }
   p{

@@ -21,7 +21,12 @@ GAGBrand.Views.ZoomView = Backbone.View.extend
   imageLoaded: ->
     @$img.css
       marginLeft: 0-(@$img.width()/2)
+      marginTop: 0-(@$img.height()/2)+6
+      opacity: 0
+    @$img.animate
       marginTop: 0-(@$img.height()/2)
+      opacity: 1
+    , 100
     return
 
   close: (e) ->
